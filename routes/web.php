@@ -1,6 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MainController;
+
+Route::get('/', [MainController::class, 'index']);
+
+// Route::get('/about', function(){
+//     return view('main/about');
+// });
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,11 +21,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('views');
+Route::get('/galery/{id}', function ($id) {
+    return view('galery', ['id' => $id]);
 });
-
-
 
 Route::get('/about', function () {
     return view('about');
